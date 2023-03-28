@@ -1,0 +1,59 @@
+\documentclass[withoutpreface,bwprint]{nudtbachelor} %去掉封面与编号页
+\usepackage{pdfpages}
+% 设置页眉页脚
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+% 公式、图表带章节编号
+\usepackage{amsmath}
+\numberwithin{equation}{section}%公式按章节编号
+\numberwithin{figure}{section}%图表按章节编号
+\pagestyle{fancy}% 设置页眉
+\makeatletter %双线页眉
+%\vskip-2\headrulewidth\vskip-1pt}%两条线的距离1pt
+%\vspace{6mm}}%双线与下面正文之间的垂直间距
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\chead{\songti\zihao{-5}{国防科技大学本科毕业论文}}
+\newcommand{\makeheadrule}{%
+	\makebox[0pt][l]{\rule[0.55\baselineskip]{\headwidth}{0.4pt}}%
+	\rule[0.7\baselineskip]{\headwidth}{0.4pt}}
+\renewcommand{\headrule}{%
+	{\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi
+		\makeheadrule}}
+\makeatother
+%\renewcommand{\headrulewidth}{1pt}%页眉线宽，设为0可以去页眉线
+\cfoot{\songti\zihao{-5}{第\thepage 页}} %页脚
+\setlength{\skip\footins}{0.5cm}%脚注与正文的距离
+\renewcommand{\footnotesize}{9pt}%设置脚注字体大小
+%\renewcommand{\headnotesize}{-5}%设置脚注字体大小
+\renewcommand{\footrulewidth}{0.5pt}%脚注线的宽度
+\usepackage{url}
+
+\begin{document}
+\includepdf{preface.pdf}
+%-------------------------- 目录 -------------------------------
+\newpage
+\tableofcontents
+\pagenumbering{Roman} %正文以后页码用阿拉伯数字
+%--------------------------- 摘要 ----------------------------
+\newpage
+\phantomsection\addcontentsline{toc}{section}{摘要}\tolerance=500 %将摘要放进目录
+	\begin{abstract}
+		
+		
+		
+		\keywords{无人机\quad  路径规划\quad   蚁群算法\quad  博弈}
+		\pagenumbering{roman} %设置罗马数字页码
+	\end{abstract}
+\begin{enabstract}
+	\addcontentsline{toc}{section}{ABSTARCT}
+	
+\end{enabstract}
+
+\newpage
+\pagenumbering{arabic} %正文以后页码用阿拉伯数字
+\section{问题重述}
+\subsection{问题背景}
+XXX
+
+\end{document}
